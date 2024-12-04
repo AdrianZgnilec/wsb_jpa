@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "DOCTOR")
@@ -36,6 +38,17 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
+
+	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+	private Collection<VisitEntity> visits;
+
+	@ManyToMany
+	@JoinTable(
+			name = "DOCTOR_ADDRESS",
+			joinColumns = @JoinColumn(name = "DOCTOR_ID"),
+			inverseJoinColumns = @JoinColumn(name = "ADDRESS_ID")
+	)
+	private Collection<AddressEntity> addresses;
 
 	public Long getId() {
 		return id;
