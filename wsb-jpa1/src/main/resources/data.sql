@@ -7,8 +7,8 @@ VALUES
 -- Tabela Doctor
 INSERT INTO doctor (id, first_name, last_name, specialization, telephone_number, email, doctor_number)
 VALUES
-    (1, 'Jan', 'Kowalski', 'Cardiology', '123456789', 'jan.kowalski@example.com', 'D001'),
-    (2, 'Anna', 'Nowak', 'Pediatrics', '987654321', 'anna.nowak@example.com', 'D002');
+    (1, 'Jan', 'Kowalski', 'CARDIOLOGY', '123456789', 'jan.kowalski@example.com', 'D001'),
+    (2, 'Anna', 'Nowak', 'PEDIATRICS', '987654321', 'anna.nowak@example.com', 'D002');
 
 -- Tabela Doctor_Address
 INSERT INTO doctor_address (doctor_id, address_id)
@@ -17,10 +17,10 @@ VALUES
     (2, 2);
 
 -- Tabela Patient
-INSERT INTO patient (id, first_name, last_name, telephone_number, email, date_of_birth, patient_number)
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, date_of_birth, patient_number, age)
 VALUES
-    (1, 'Jan', 'Kowalski', '123456789', 'jan.kowalski@example.com', '1985-01-01', 'P001'),
-    (2, 'Anna', 'Nowak', '987654321', 'anna.nowak@example.com', '1990-05-15', 'P002');
+    (1, 'Jan', 'Kowalski', '123456789', 'jan.kowalski@example.com', '1985-01-01', 'P001', 38),
+    (2, 'Anna', 'Nowak', '987654321', 'anna.nowak@example.com', '1990-05-15', 'P002', 33);
 
 -- Tabela Patient_Address
 INSERT INTO patient_address (patient_id, address_id)

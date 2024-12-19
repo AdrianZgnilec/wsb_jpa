@@ -16,6 +16,7 @@ public class AddressEntity {
 	@Column(nullable = false)
 	private String addressLine1;
 
+	@Column
 	private String addressLine2;
 
 	@Column(nullable = false)

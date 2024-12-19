@@ -30,6 +30,7 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	private String telephoneNumber;
 
+	@Column
 	private String email;
 
 	@Column(nullable = false)
