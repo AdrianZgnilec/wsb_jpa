@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -67,5 +69,17 @@ public class PatientServiceTest {
         assertThat(otherPatientAfter).isNotNull();
         assertThat(otherPatientAfter.getVisits()).isNotEmpty();
 
+    }
+
+    @Test
+    public void shouldFindAllVisitsForPatient() {
+        // given
+        Long patientId = 3L;
+
+        // when
+        List<VisitEntity> visits = patientService.getAllVisitsByPatientId(patientId);
+
+        // then
+        assertThat(visits).hasSize(3);
     }
 }

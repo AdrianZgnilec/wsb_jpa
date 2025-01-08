@@ -21,6 +21,9 @@ public class PatientEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Version
+	private Long version;
+
 	@Column(nullable = false)
 	private String firstName;
 
@@ -42,7 +45,7 @@ public class PatientEntity {
 	@Column
 	private Integer age;
 
-	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
 	private List<VisitEntity> visits;
 
 	public List<VisitEntity> getVisits() {
@@ -123,6 +126,14 @@ public class PatientEntity {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
 	}
 
 }
